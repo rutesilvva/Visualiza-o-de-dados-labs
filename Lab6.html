@@ -1,135 +1,131 @@
-<!--
-	THIS EXAMPLE WAS DOWNLOADED FROM https://echarts.apache.org/examples/en/editor.html?c=map-usa&code=LYTwwgFghgTgLgOgM4QPYHcAyqoBMCWAdgOYAUAlANwBQ1ABA3QCQLECmcpA5BHHAA5IAXAHoRMKOlb44EAK4AjOUjYwAxqkJw2WhBuAiNuNgDNUE4KvxqohgDbWA1gH1ZUOM7SpcI4FCTaMCL8ig5qIrjutgoSAF74dgC0Ae5sSKxsqABWSJpcADR0JnKEanD4mnSkMQBSuYTkdADe9IwMoJCwiBD4xth4RGRUrW1satDw6TBsxPgBqgCyUPzcAEIASgV0tfXDI4wahAF0UISoSHQAvHQA2lwAKqhwUHZbXABMAAwAjAAcb19vgBOAGfL6g97fCHvLgAXRo-wYh2OkVw5wACuYAIJnK7NRGMABEj2edkJQluzTohMIUEs5OpWLU00JhUJADcXnI2AzvgBmb4AFjoAF9Ck1qbT6RTCVi7FBiDgkKzqZy7NyGQBWADsADYgaLxZK6TyZVi_PwAIcqjlc010b7vXV8w1UmkmhmyvyxTT-G1qjUUzW_T4usVuqX2wmrKA9KD-u0Mp2CzWa10S93S6lgNiwa1sgP2766nXa9PGrOEgAiczgMBkqDoADE2MYJGSC4mKd9td9PuXM1GAKJIfgAW_rcEbAGVTlOE-r7Zr3oKDeGM5HPQBxVD4S3KzuLhl6zXC9cVqNLCSECAAY9QC8DdF-fKBZ6Ng89SyndC3MHOuSPvagrFr8A6bjK36Nn-AGNmidDTnIHaql2dDvHyfL9uen6QUQ_i_qoUBzEBvICvq4EejK6J5iR3ZkWW2EQdS1ESGOCjxoeT6ptq74RpRzGwKc-YoUeFJArqgrvBRlboqoUpKBotEOr2vy6tJUbovgUByGOSl8u8vxrh-TGEusFR0MYdA1KcbD4P-Sl_DxaaMfxpnmX-pyWfBABy5jaEpwa_FJLmVmZ0HXl5M5IUpQL6d86meusmi4AAL4QWlKV8EkJTKSUSPgfhKb82oMcZrmzloUB0GAUT1rSemSaVfGVtO950NRSEPpxRaCrqvzOWVLWqLM_A8t1DJ8rqQo5dSjw2FoRAHiJT5_JJop0LC-QEgwhKAr8DI3M1UZMiy40Uq-akhcd8qKn6Z0OhhWGDcdFrCbaol0Jh8VXZ65pQD6tJLe9K19t9z2ejGcYBcuT1HZ6OY0fdgrapqsMbq5NYBJOjYtm2LxKSBaMXp6I7jtjCFzl1y09Z8RlwzKO57kDha8rFwXg5Bgk3veDlAtq7P09SUG_v-SCAfdjpOjNhLCzBYtwVFyHA_afUC-jlYLHhFxboRxH3Rhmpg4LhIsW9LPnU6l0cwJrHsQ5fLakTOE20JmV8iG0uyTA8lyIpSOpnT6saVpOlFYKvFB4l5mWdZhC2fZSN9Ubke5e5EVsBZja-fAY3U6RnwDcbYUi55GfwYhSvm2hybS0lhCpelHF5xSzoR8TuXmERhX3ehyft9SFXPNVtV4UVvxgT9MqtY2HV2FTysTdqGHS9Ow34KNMWvtLc1zotBOO-tm3bdSgJAgdxsnbnC8Uu8B-T4yN1Kg5nzkffXrLGbqHoWr_fvwDd3NzoECcS0tIYZXuqjaab8EYwE_h9SEqZpaYzrA2ZsrZCKV1Qu7H-ztCSkwnKgwe88q5AmKtLRm-4HIlkDr_K8pw7zENQvyUh0tZai3FoAkqTsTJsNgpnBC0V_Y0NwZrQGBF8rMy_o7HBJlTaZT1G3XBLEoBsSbtfIBa037KMIHAla2oPZaLknSBSjCPr6R1J7EOukIGaOtm5OCGdY7x1MU-V8wDa5p1Lvw7O_kJYFyainakxcPL1zLorByQUJ52Lrg3cBgCHZ91wXlLuaiq49itsbQeVUarPDqqk1C-oMmBMJNPdq2k57yJRivNeG97olUSSZHeC0jh6UmofLabQ2i7TBJ8c-xTL7yO4a5OUCon4S0hFEi-r03bCJMn9f-kiPpAnQqA2McT1GagdoXYpMDdH2lfA7JBtZya4wwXpU80t8HkyIQ5PsYY7EUMWStVG2zaFcwYREzURS3k_jlhw9Rvw-ysPcOFPh5dBHxJAW_UR-EdYSMyqmIZMlEaAMhCwrRglVG3N1DI1y2i9ms2WZ7IxwATHnL6pY7S1jAG6l1EiqMxcY42Tsi4_ZmzcWhU8aE7xfkr5pPeJsjx4UvHgswR9P43wGmuRiWldZVdBShlrp3Aq-TxU8RXnObJI96r3UKSvNqs9WUTU-Aq6pMARp8tQijWZrkmnlBaUjE17Tj7dMhH03-AyJa9mliM26Tyiwmvpb9aZPdAU-u9L6f1vJeqKJMmA1VXFNk2srLsvSXwOVRmQSc9B7ZMpAiDTKK5hDKbP2DOQ3clDxm02BdeD5EtInAt-ewo1FIeLJsvCCkWYLwn-2-SIrW4iiJRpvnyECnsUXqLRfc42yisUS2LK8pRXMCXdnzYu2RJKyX6yFLGvFVilI8SlZyhxVlmUJ3iehAJv9gnpx5TnZ-L4hUl25aKqh7wM2JWSrKhNwFixKvyt3QBwIr24KycPXJo9dXh31TPcpLa0L5qPVGVe5r16Wo-qmSZxS7V731u7Z1nSiTpveO63BnrUWfBA3Mx-AD1GSsdOGj-mUgVv3mZG-2wJVlQwgZ8Sj0tU2hrDW_LNqDTm5p7oKt-Rafw3PusAj9DMK3DodD2JDX53k8wlvqXdGtO1_Pg8s6dxTeHy34RXAmhlWEDrhUOzKq5114onVXCZDnkW2x_byWmrmNLLsyj8AtzFN2-3g_pbKWj911MfW_Rljiz0hbBFR6VXLIp0B8ehlavGFNBOS2EgRYqVr6iy6ZL9jd97ts_QBjz3ZvVvzAzk2AkGaXfG856Uphq9Imp08hmp6Wlzqrfjhh1kLLobQJCKBEhHUD8HKJUa4LRCMMHYioAA8tNiohAKTzYWwwcolgHBx028fNoUAAAecx7ggFGhSLgNhtCKhgCAAoR3GDaSnOieUIAKQmBeCoDp23GD8A-wASS0KoNU51eOfD-_97YTwpzAG7FD57DBIjPApKcc4z2xTPfKHAOwbBDsw522wE7cBrskheBZDOAA1Mcu38L8HMHQEczx4IZxxKgJ7RO6BIEUNoUn12myaG0BSEHBAbBommBcSyq9iByGvAAc6quiAAXwoMIUAudE_xyYMndAuD1mILwLgWPocLanKgOw5R-CE6Jyg4g7AYDXZkGwYAWuYdmBgH4PgqhrtNAUCKAAPDEEQAA-Cndgqd0Fp_T4QzQ1AihNzD7HMP2RzDkC8JYNv8Tc-AEQCkSPc-nYh5Ds322dd664BX93_2pzZ64AoOHqA3dl_NyTvXdwlhzDoOyOnKqkBvAWDoc4Pe-9-AH0fbnNg7BqCQlAdXBO6B1m5K3wjRB1inHYLbqflvzAUjuAAYhMMfzUJhPhvCP2oBQ7EoSFC4EfhQuooCCk13fg_V-JW4Av7qR2vGv-wmR1FFN2exUHrDSH3y2xhzgEu0Xy4AtBr22wtGuw2AQIW3_DpApGXzYFX06Vd34GgCQDmG3213nzYDsE2x5zQHQEwJgG5CAO5xTyJ1RygH3wAOTzYIW0YMmzW00Djwx3SAtFIAxyuFDyqEgPNxkHxwoP5z1wAAMY9-86BXdmAmgMcRRZDDQQCrBwDbgJRmCKRUQMRsQzgbgMdYRRQODCMRRyByAxsJtOkOgJhEAVA4BVsZtCBSApt3C9hCNHCugEBNBuBdsyCiAxhoASBWwthihSh3CqhGhxC2g_D4AEACBRx3BxgmR3DSAJRoCrt9cehjB7h14uBRRhhEDwAnCUi5h-B0iIBMj1tsil8YDrs0R0BCBAcoBHtChQD8A0gxcScC9Sj7DCNkQ4A6BZ8YBpgtA3D1s8QkjEB2BXCeCPCyiFt8ATAqgJipiljYiAAyXY8Y-XbYmYzQZAbQi4fYw4yYnQHY9bM4sApAG4T4WEeI57YwfHbQK4445Y-43ox454s4_HMoVsGgGHeYs424wIrYm4k4wgQoLA1YqwsbREoY2gNodAIgVohAPAXAIcdkG4zAWsHQVQbgKXfAWINgLYcEskikqgIAA
-	⚠ Please be aware that this chart is not an official demo of Apache ECharts but is made by user-generated code.
--->
+
 <!DOCTYPE html>
-<html lang="en" style="height: 100%">
+<html lang="pt-br">
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
+  <title>Mapa Interativo - Vítimas por Município</title>
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 20px; }
+    #mapa { width: 100%; height: 600px; margin-bottom: 30px; }
+    #grafico-municipios { width: 100%; height: 500px; }
+    select { font-size: 16px; padding: 6px 10px; margin-bottom: 20px; }
+    h2, h3 { text-align: center; }
+  </style>
 </head>
-<body style="height: 100%; margin: 0">
-  <div style="padding: 30px; font-family: Arial, sans-serif;">
-  <h3 style="text-align: center; margin-bottom: 5px;">UNIVERSIDADE FEDERAL DE CAMPINA GRANDE - UFCG</h3>
-  <h4 style="text-align: center; margin: 0;">CENTRO DE ENGENHARIA ELÉTRICA E INFORMÁTICA - CEEI</h4>
-  <h4 style="text-align: center; margin: 0;">UNIDADE ACADÊMICA DE SISTEMAS E COMPUTAÇÃO - UASC</h4>
-  <h2 style="text-align: center; margin-top: 20px;">Projeto de Visualização Interativa de Dados</h2>
-  <p style="text-align: center; font-size: 16px;"><strong>Grupo B:</strong> Lucas Ariel, Rute Pereira, Marcelo Alves e Joseff Costa</p>
-  <p style="text-align: right; font-size: 14px; margin-right: 30px;">
-    <strong>Disciplina:</strong> Visualização de Dados (TECC)<br>
-    <strong>Professor:</strong> Maxwell Guimarães de Oliveira<br>
-    <strong>Período:</strong> 2024.2
-  </p>
-  <h2 style="text-align: center;">Dados Nacionais de Segurança Publica</h2>
-  <p style="text-align: center; margin: 20px auto; max-width: 800px;">
-    Segurança pública em relação aos números de vítimas por ano e em cada estado do Brasil.
-  </p>
-</div>
+<body>
+  <h2>Mapa Interativo - Vítimas por Município</h2>
+  <h3>Clique em um estado e veja os municípios mais afetados</h3>
+  <div style="text-align:center;">
+    <label for="anoSelect">Selecione o Ano: </label>
+    <select id="anoSelect"></select>
+  </div>
+  <div id="mapa"></div>
+  <div id="grafico-municipios"></div>
 
-<div id="container" style="height: 600px;"></div>
+  <script>
+    const dadosPorEstado = {"AC": {"2018": [{"name": "Acrelândia", "value": 5}, {"name": "Assis Brasil", "value": 7}, {"name": "Brasiléia", "value": 7}, {"name": "Bujari", "value": 2}, {"name": "Capixaba", "value": 10}, {"name": "Cruzeiro Do Sul", "value": 59}, {"name": "Epitaciolândia", "value": 1}, {"name": "Feijó", "value": 16}, {"name": "Jordão", "value": 1}, {"name": "Manoel Urbano", "value": 0}, {"name": "Marechal Thaumaturgo", "value": 1}, {"name": "Mâncio Lima", "value": 8}, {"name": "Plácido De Castro", "value": 7}, {"name": "Porto Acre", "value": 4}, {"name": "Porto Walter", "value": 0}, {"name": "Rio Branco", "value": 227}, {"name": "Rodrigues Alves", "value": 4}, {"name": "Santa Rosa Do Purus", "value": 0}, {"name": "Sena Madureira", "value": 10}, {"name": "Senador Guiomard", "value": 9}, {"name": "Tarauacá", "value": 16}, {"name": "Xapuri", "value": 2}], "2019": [{"name": "Acrelândia", "value": 2}, {"name": "Assis Brasil", "value": 3}, {"name": "Brasiléia", "value": 4}, {"name": "Bujari", "value": 1}, {"name": "Cruzeiro Do Sul", "value": 21}, {"name": "Epitaciolândia", "value": 3}, {"name": "Feijó", "value": 10}, {"name": "Jordão", "value": 1}, {"name": "Manoel Urbano", "value": 3}, {"name": "Mâncio Lima", "value": 6}, {"name": "Plácido De Castro", "value": 8}, {"name": "Porto Acre", "value": 4}, {"name": "Rio Branco", "value": 167}, {"name": "Rodrigues Alves", "value": 5}, {"name": "Sena Madureira", "value": 9}, {"name": "Senador Guiomard", "value": 6}, {"name": "Tarauacá", "value": 14}, {"name": "Xapuri", "value": 3}], "2020": [{"name": "Acrelândia", "value": 1}, {"name": "Assis Brasil", "value": 1}, {"name": "Brasiléia", "value": 5}, {"name": "Bujari", "value": 8}, {"name": "Capixaba", "value": 0}, {"name": "Cruzeiro Do Sul", "value": 11}, {"name": "Epitaciolândia", "value": 8}, {"name": "Feijó", "value": 13}, {"name": "Jordão", "value": 1}, {"name": "Manoel Urbano", "value": 6}, {"name": "Marechal Thaumaturgo", "value": 1}, {"name": "Mâncio Lima", "value": 4}, {"name": "Plácido De Castro", "value": 2}, {"name": "Porto Acre", "value": 5}, {"name": "Porto Walter", "value": 2}, {"name": "Rio Branco", "value": 170}, {"name": "Rodrigues Alves", "value": 4}, {"name": "Santa Rosa Do Purus", "value": 1}, {"name": "Sena Madureira", "value": 8}, {"name": "Senador Guiomard", "value": 6}, {"name": "Tarauacá", "value": 9}, {"name": "Xapuri", "value": 4}], "2021": [{"name": "Acrelândia", "value": 1}, {"name": "Assis Brasil", "value": 3}, {"name": "Brasiléia", "value": 10}, {"name": "Bujari", "value": 1}, {"name": "Capixaba", "value": 0}, {"name": "Cruzeiro Do Sul", "value": 10}, {"name": "Epitaciolândia", "value": 3}, {"name": "Feijó", "value": 9}, {"name": "Jordão", "value": 0}, {"name": "Manoel Urbano", "value": 2}, {"name": "Marechal Thaumaturgo", "value": 2}, {"name": "Mâncio Lima", "value": 2}, {"name": "Plácido De Castro", "value": 3}, {"name": "Porto Acre", "value": 5}, {"name": "Porto Walter", "value": 0}, {"name": "Rio Branco", "value": 98}, {"name": "Rodrigues Alves", "value": 3}, {"name": "Santa Rosa Do Purus", "value": 0}, {"name": "Sena Madureira", "value": 4}, {"name": "Senador Guiomard", "value": 3}, {"name": "Tarauacá", "value": 10}, {"name": "Xapuri", "value": 2}], "2022": [{"name": "Acrelândia", "value": 5}, {"name": "Assis Brasil", "value": 4}, {"name": "Brasiléia", "value": 19}, {"name": "Bujari", "value": 3}, {"name": "Capixaba", "value": 3}, {"name": "Cruzeiro Do Sul", "value": 11}, {"name": "Epitaciolândia", "value": 6}, {"name": "Feijó", "value": 15}, {"name": "Jordão", "value": 2}, {"name": "Manoel Urbano", "value": 3}, {"name": "Marechal Thaumaturgo", "value": 3}, {"name": "Mâncio Lima", "value": 4}, {"name": "Plácido De Castro", "value": 2}, {"name": "Porto Acre", "value": 4}, {"name": "Porto Walter", "value": 2}, {"name": "Rio Branco", "value": 80}, {"name": "Rodrigues Alves", "value": 2}, {"name": "Santa Rosa Do Purus", "value": 0}, {"name": "Sena Madureira", "value": 14}, {"name": "Senador Guiomard", "value": 13}, {"name": "Tarauacá", "value": 10}, {"name": "Xapuri", "value": 2}]}};
 
-<div style="padding: 0 30px 30px 30px; font-family: Arial, sans-serif;">
-  <h3>Dicas para interagir com a visualização:</h3>
-  <ul>
-    <li>Use a linha do tempo para alternar entre os anos e visualizar os dados atualizados.</li>
-    <li>Passe o mouse sobre os estados no mapa para ver o total de vítimas.</li>
-    <li>A barra de vítimas serve para filtrar a numeração.</li>
-  </ul>
-</div>
+    const chartMapa = echarts.init(document.getElementById('mapa'));
+    const chartMunicipios = echarts.init(document.getElementById('grafico-municipios'));
 
-  <script type="text/javascript" src="https://echarts.apache.org/en/js/vendors/jquery@3.7.1/dist/jquery.min.js"></script>
-  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+    let anoAtual = Object.keys(dadosPorEstado['PB'])[0];
 
-  <script type="text/javascript">
-    var dom = document.getElementById('container');
-    var myChart = echarts.init(dom, null, {
-      renderer: 'canvas',
-      useDirtyRect: false
+    const selectAno = document.getElementById('anoSelect');
+    const anosDisponiveis = new Set();
+    Object.values(dadosPorEstado).forEach(estado => {
+      Object.keys(estado).forEach(ano => anosDisponiveis.add(ano));
     });
-    var app = {};
-    var option;
+    const anos = Array.from(anosDisponiveis).sort();
+    anos.forEach(ano => {
+      const opt = document.createElement('option');
+      opt.value = ano;
+      opt.text = ano;
+      selectAno.appendChild(opt);
+    });
+    selectAno.value = anoAtual;
+    selectAno.addEventListener('change', () => {
+      anoAtual = selectAno.value;
+      atualizarMapa();
+    });
 
-    myChart.showLoading();
+    function atualizarMapa() {
+      const mapaData = Object.entries(dadosPorEstado).map(([estado, anos]) => {
+        const municipios = anos[anoAtual] || [];
+        const total = municipios.reduce((acc, cur) => acc + cur.value, 0);
+        return { name: estado, value: total };
+      });
 
-    $.get('https://raw.githubusercontent.com/codeforamerica/click_that_hood/master/public/data/brazil-states.geojson', function (brJson) {
-      myChart.hideLoading();
-      echarts.registerMap('BR', brJson);
-
-      const anos = ['Total', '2018', '2019', '2020', '2021', '2022'];
-
-      const dadosPorAno = {
-        "Total": [ { "name": "Acre", "value": 1314 }, { "name": "Alagoas", "value": 5769 }, { "name": "Amapá", "value": 1263 }, { "name": "Amazonas", "value": 5803 }, { "name": "Bahia", "value": 26455 }, { "name": "Ceará", "value": 16577 }, { "name": "Distrito Federal", "value": 1710 }, { "name": "Espírito Santo", "value": 5249 }, { "name": "Goiás", "value": 7654 }, { "name": "Maranhão", "value": 8394 }, { "name": "Mato Grosso", "value": 4168 }, { "name": "Mato Grosso do Sul", "value": 2330 }, { "name": "Minas Gerais", "value": 13169 }, { "name": "Pará", "value": 13167 }, { "name": "Paraíba", "value": 5574 }, { "name": "Paraná", "value": 9642 }, { "name": "Pernambuco", "value": 17186 }, { "name": "Piauí", "value": 3289 }, { "name": "Rio de Janeiro", "value": 18745 }, { "name": "Rio Grande do Norte", "value": 5882 }, { "name": "Rio Grande do Sul", "value": 9321 }, { "name": "Rondônia", "value": 2064 }, { "name": "Roraima", "value": 877 }, { "name": "Santa Catarina", "value": 3427 }, { "name": "São Paulo", "value": 14685 }, { "name": "Sergipe", "value": 3614 }, { "name": "Tocantins", "value": 1842 } ],
-        "2018": [ { "name": "Acre", "value": 396 }, { "name": "Alagoas", "value": 1330 }, { "name": "Amapá", "value": 301 }, { "name": "Amazonas", "value": 1101 }, { "name": "Bahia", "value": 5520 }, { "name": "Ceará", "value": 4750 }, { "name": "Distrito Federal", "value": 410 }, { "name": "Espírito Santo", "value": 1409 }, { "name": "Goiás", "value": 1932 }, { "name": "Maranhão", "value": 1972 }, { "name": "Mato Grosso", "value": 1226 }, { "name": "Mato Grosso do Sul", "value": 682 }, { "name": "Minas Gerais", "value": 3351 }, { "name": "Pará", "value": 3266 }, { "name": "Paraíba", "value": 1370 }, { "name": "Paraná", "value": 2380 }, { "name": "Pernambuco", "value": 4559 }, { "name": "Piauí", "value": 844 }, { "name": "Rio de Janeiro", "value": 4681 }, { "name": "Rio Grande do Norte", "value": 1305 }, { "name": "Rio Grande do Sul", "value": 2264 }, { "name": "Rondônia", "value": 634 }, { "name": "Roraima", "value": 231 }, { "name": "Santa Catarina", "value": 888 }, { "name": "São Paulo", "value": 3733 }, { "name": "Sergipe", "value": 939 }, { "name": "Tocantins", "value": 470 } ],
-        "2019": [ { "name": "Acre", "value": 270 }, { "name": "Alagoas", "value": 1069 }, { "name": "Amapá", "value": 232 }, { "name": "Amazonas", "value": 996 }, { "name": "Bahia", "value": 5014 }, { "name": "Ceará", "value": 2155 }, { "name": "Distrito Federal", "value": 382 }, { "name": "Espírito Santo", "value": 987 }, { "name": "Goiás", "value": 1659 }, { "name": "Maranhão", "value": 1398 }, { "name": "Mato Grosso", "value": 770 }, { "name": "Mato Grosso do Sul", "value": 459 }, { "name": "Minas Gerais", "value": 2702 }, { "name": "Pará", "value": 2764 }, { "name": "Paraíba", "value": 942 }, { "name": "Paraná", "value": 1780 }, { "name": "Pernambuco", "value": 3257 }, { "name": "Piauí", "value": 542 }, { "name": "Rio de Janeiro", "value": 3999 }, { "name": "Rio Grande do Norte", "value": 1057 }, { "name": "Rio Grande do Sul", "value": 1828 }, { "name": "Rondônia", "value": 371 }, { "name": "Roraima", "value": 176 }, { "name": "Santa Catarina", "value": 696 }, { "name": "São Paulo", "value": 2775 }, { "name": "Sergipe", "value": 771 }, { "name": "Tocantins", "value": 336 } ],
-        "2020": [ { "name": "Acre", "value": 270 }, { "name": "Alagoas", "value": 1218 }, { "name": "Amapá", "value": 239 }, { "name": "Amazonas", "value": 923 }, { "name": "Bahia", "value": 5375 }, { "name": "Ceará", "value": 3937 }, { "name": "Distrito Federal", "value": 354 }, { "name": "Espírito Santo", "value": 1103 }, { "name": "Goiás", "value": 1505 }, { "name": "Maranhão", "value": 1856 }, { "name": "Mato Grosso", "value": 810 }, { "name": "Mato Grosso do Sul", "value": 396 }, { "name": "Minas Gerais", "value": 2550 }, { "name": "Pará", "value": 2198 }, { "name": "Paraíba", "value": 1162 }, { "name": "Paraná", "value": 1992 }, { "name": "Pernambuco", "value": 3568 }, { "name": "Piauí", "value": 660 }, { "name": "Rio de Janeiro", "value": 3532 }, { "name": "Rio Grande do Norte", "value": 1253 }, { "name": "Rio Grande do Sul", "value": 1811 }, { "name": "Rondônia", "value": 403 }, { "name": "Roraima", "value": 174 }, { "name": "Santa Catarina", "value": 696 }, { "name": "São Paulo", "value": 3040 }, { "name": "Sergipe", "value": 759 }, { "name": "Tocantins", "value": 404 } ],
-        "2021": [ { "name": "Acre", "value": 171 }, { "name": "Alagoas", "value": 1040 }, { "name": "Amapá", "value": 281 }, { "name": "Amazonas", "value": 1464 }, { "name": "Bahia", "value": 5539 }, { "name": "Ceará", "value": 3202 }, { "name": "Distrito Federal", "value": 290 }, { "name": "Espírito Santo", "value": 1058 }, { "name": "Goiás", "value": 1209 }, { "name": "Maranhão", "value": 1828 }, { "name": "Mato Grosso", "value": 749 }, { "name": "Mato Grosso do Sul", "value": 456 }, { "name": "Minas Gerais", "value": 2341 }, { "name": "Pará", "value": 2193 }, { "name": "Paraíba", "value": 1165 }, { "name": "Paraná", "value": 1905 }, { "name": "Pernambuco", "value": 3144 }, { "name": "Piauí", "value": 741 }, { "name": "Rio de Janeiro", "value": 3237 }, { "name": "Rio Grande do Norte", "value": 1083 }, { "name": "Rio Grande do Sul", "value": 1622 }, { "name": "Rondônia", "value": 416 }, { "name": "Roraima", "value": 197 }, { "name": "Santa Catarina", "value": 644 }, { "name": "São Paulo", "value": 2901 }, { "name": "Sergipe", "value": 558 }, { "name": "Tocantins", "value": 338 } ],
-        "2022": [ { "name": "Acre", "value": 207 }, { "name": "Alagoas", "value": 1112 }, { "name": "Amapá", "value": 210 }, { "name": "Amazonas", "value": 1319 }, { "name": "Bahia", "value": 5007 }, { "name": "Ceará", "value": 2881 }, { "name": "Distrito Federal", "value": 253 }, { "name": "Espírito Santo", "value": 992 }, { "name": "Goiás", "value": 1171 }, { "name": "Maranhão", "value": 1694 }, { "name": "Mato Grosso", "value": 923 }, { "name": "Mato Grosso do Sul", "value": 489 }, { "name": "Minas Gerais", "value": 2495 }, { "name": "Pará", "value": 2185 }, { "name": "Paraíba", "value": 1095 }, { "name": "Paraná", "value": 2010 }, { "name": "Pernambuco", "value": 3264 }, { "name": "Piauí", "value": 783 }, { "name": "Rio de Janeiro", "value": 3027 }, { "name": "Rio Grande do Norte", "value": 1002 }, { "name": "Rio Grande do Sul", "value": 1692 }, { "name": "Rondônia", "value": 479 }, { "name": "Roraima", "value": 171 }, { "name": "Santa Catarina", "value": 615 }, { "name": "São Paulo", "value": 3044 }, { "name": "Sergipe", "value": 574 }, { "name": "Tocantins", "value": 396 } ]
-      };
-
-      option = {
-        baseOption: {
-          timeline: {
-            axisType: 'category',
-            autoPlay: false,
-            playInterval: 3000,
-            bottom: 0,
-            data: anos
-          },
-          title: {},
-          tooltip: {
-            trigger: 'item',
-            formatter: '{b}<br/>'
-          },
-          visualMap: {
-            min: 0,
-            max: 27000,
-            left: 150,
-            top: 300,
-            text: ['Mais vítimas', 'Menos vítimas'],
-            calculable: true,
-            inRange: {
-              color: ['#fff5f0', '#fcae91', '#fb6a4a', '#cb181d', '#67000d']
-            }
-          },
-          series: [{
-            type: 'map',
-            map: 'BR',
-            selectedMode: false,
-            roam: true,
-            emphasis: {
-              label: { show: true }
-            },
-            data: []
-          }]
-        },
-        options: anos.map(ano => ({
+      chartMapa.setOption({
         title: {
-            text: `Vítimas em ${ano} (${dadosPorAno[ano].reduce((acc, curr) => acc + curr.value, 0)})`,
-            top: 60,
-            left: 90
+          text: `Vítimas por Estado (${anoAtual})`,
+          left: 'center'
         },
-          series: [{ data: dadosPorAno[ano] }]
-        }))
-      };
+        tooltip: {
+          trigger: 'item',
+          formatter: '{b}<br/>Total: {c} vítimas'
+        },
+        visualMap: {
+          min: 0,
+          max: Math.max(...mapaData.map(d => d.value)) || 100,
+          left: 'left',
+          top: 'bottom',
+          text: ['Mais', 'Menos'],
+          calculable: true,
+          inRange: {
+            color: ['#f2f0f7', '#9e9ac8', '#6a51a3']
+          }
+        },
+        series: [{
+          type: 'map',
+          map: 'BR',
+          roam: true,
+          data: mapaData
+        }]
+      });
+    }
 
-      myChart.setOption(option);
+    $.get('https://raw.githubusercontent.com/codeforamerica/click_that_hood/master/public/data/brazil-states.geojson', function (geoJson) {
+      echarts.registerMap('BR', geoJson);
+      atualizarMapa();
 
-      myChart.on('timelinechanged', function (e) {
-        const index = e.currentIndex;
-        const ano = anos[index];
+      chartMapa.on('click', function (params) {
+        const estado = params.name;
+        const dados = dadosPorEstado[estado] && dadosPorEstado[estado][anoAtual];
+        if (!dados) {
+          chartMunicipios.clear();
+          return;
+        }
+        const nomes = dados.map(d => d.name);
+        const valores = dados.map(d => d.value);
 
-        myChart.dispatchAction({ type: 'hideTip' });
-        myChart.dispatchAction({ type: 'downplay', seriesIndex: 0 });
-
-        myChart.setOption({
+        chartMunicipios.setOption({
+          title: {
+            text: `Vítimas por Município - ${estado} (${anoAtual})`,
+            left: 'center'
+          },
+          tooltip: {},
+          xAxis: {
+            type: 'category',
+            data: nomes,
+            axisLabel: { rotate: 45 }
+          },
+          yAxis: {
+            type: 'value'
+          },
           series: [{
-            data: dadosPorAno[ano]
+            type: 'bar',
+            data: valores
           }]
         });
       });
     });
 
-    window.addEventListener('resize', myChart.resize);
+    window.addEventListener('resize', () => {
+      chartMapa.resize();
+      chartMunicipios.resize();
+    });
   </script>
 </body>
 </html>
-
