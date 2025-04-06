@@ -3,103 +3,133 @@
 	⚠ Please be aware that this chart is not an official demo of Apache ECharts but is made by user-generated code.
 -->
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en" style="height: 100%">
 <head>
-  <meta charset="UTF-8">
-  <title>Lab6 - Visualização Interativa de Dados</title>
-  <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
-  <style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 20px; }
-    h2, h3 { text-align: center; }
-    #filtros { display: flex; justify-content: center; gap: 20px; margin-bottom: 20px; }
-    select { padding: 5px 10px; font-size: 16px; }
-    #grafico { width: 100%; height: 600px; }
-  </style>
+  <meta charset="utf-8">
 </head>
-<body>
-  <h2>Dados Nacionais de Segurança Pública</h2>
-  <p style="text-align: center;">Selecione um ano, estado e tipo de crime para visualizar as ocorrências registradas.</p>
+<body style="height: 100%; margin: 0">
+  <div style="padding: 30px; font-family: Arial, sans-serif;">
+  <h3 style="text-align: center; margin-bottom: 5px;">UNIVERSIDADE FEDERAL DE CAMPINA GRANDE - UFCG</h3>
+  <h4 style="text-align: center; margin: 0;">CENTRO DE ENGENHARIA ELÉTRICA E INFORMÁTICA - CEEI</h4>
+  <h4 style="text-align: center; margin: 0;">UNIDADE ACADÊMICA DE SISTEMAS E COMPUTAÇÃO - UASC</h4>
+  <h2 style="text-align: center; margin-top: 20px;">Projeto de Visualização Interativa de Dados</h2>
+  <p style="text-align: center; font-size: 16px;"><strong>Grupo B:</strong> Lucas Ariel, Rute Pereira, Marcelo Alves e Joseff Costa</p>
+  <p style="text-align: right; font-size: 14px; margin-right: 30px;">
+    <strong>Disciplina:</strong> Visualização de Dados (TECC)<br>
+    <strong>Professor:</strong> Maxwell Guimarães de Oliveira<br>
+    <strong>Período:</strong> 2024.2
+  </p>
+  <h2 style="text-align: center;">Dados Nacionais de Segurança Publica</h2>
+  <p style="text-align: center; margin: 20px auto; max-width: 800px;">
+    Segurança pública em relação aos números de vítimas por ano e em cada estado do Brasil.
+  </p>
+</div>
 
-  <div id="filtros">
-    <select id="ano"></select>
-    <select id="estado"></select>
-    <select id="crime"></select>
-  </div>
+<div id="container" style="height: 600px;"></div>
 
-  <div id="grafico"></div>
+<div style="padding: 0 30px 30px 30px; font-family: Arial, sans-serif;">
+  <h3>Dicas para interagir com a visualização:</h3>
+  <ul>
+    <li>Use a linha do tempo para alternar entre os anos e visualizar os dados atualizados.</li>
+    <li>Passe o mouse sobre os estados no mapa para ver o total de vítimas.</li>
+    <li>A barra de vítimas serve para filtrar a numeração.</li>
+  </ul>
+</div>
 
-  <script>
-    const dados = __DADOS_JSON__;
+  <script type="text/javascript" src="https://echarts.apache.org/en/js/vendors/jquery@3.7.1/dist/jquery.min.js"></script>
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
 
-    const selectAno = document.getElementById("ano");
-    const selectEstado = document.getElementById("estado");
-    const selectCrime = document.getElementById("crime");
+  <script type="text/javascript">
+    var dom = document.getElementById('container');
+    var myChart = echarts.init(dom, null, {
+      renderer: 'canvas',
+      useDirtyRect: false
+    });
+    var app = {};
+    var option;
 
-    const anos = Object.keys(dados);
-    const estados = [...new Set(Object.values(dados).flat().map(d => d.estado))].sort();
-    const crimes = [...new Set(Object.values(dados).flat().map(d => d.crime))].sort();
+    myChart.showLoading();
 
-    anos.forEach(ano => selectAno.innerHTML += `<option value="${ano}">${ano}</option>`);
-    estados.forEach(e => selectEstado.innerHTML += `<option value="${e}">${e}</option>`);
-    crimes.forEach(c => selectCrime.innerHTML += `<option value="${c}">${c}</option>`);
+    $.get('https://raw.githubusercontent.com/codeforamerica/click_that_hood/master/public/data/brazil-states.geojson', function (brJson) {
+      myChart.hideLoading();
+      echarts.registerMap('BR', brJson);
 
-    const chart = echarts.init(document.getElementById("grafico"));
+      const anos = ['Total', '2018', '2019', '2020', '2021', '2022'];
 
-    function atualizarGrafico() {
-      const ano = selectAno.value;
-      const estado = selectEstado.value;
-      const crime = selectCrime.value;
+      const dadosPorAno = {
+        "Total": [ { "name": "Acre", "value": 1314 }, { "name": "Alagoas", "value": 5769 }, { "name": "Amapá", "value": 1263 }, { "name": "Amazonas", "value": 5803 }, { "name": "Bahia", "value": 26455 }, { "name": "Ceará", "value": 16577 }, { "name": "Distrito Federal", "value": 1710 }, { "name": "Espírito Santo", "value": 5249 }, { "name": "Goiás", "value": 7654 }, { "name": "Maranhão", "value": 8394 }, { "name": "Mato Grosso", "value": 4168 }, { "name": "Mato Grosso do Sul", "value": 2330 }, { "name": "Minas Gerais", "value": 13169 }, { "name": "Pará", "value": 13167 }, { "name": "Paraíba", "value": 5574 }, { "name": "Paraná", "value": 9642 }, { "name": "Pernambuco", "value": 17186 }, { "name": "Piauí", "value": 3289 }, { "name": "Rio de Janeiro", "value": 18745 }, { "name": "Rio Grande do Norte", "value": 5882 }, { "name": "Rio Grande do Sul", "value": 9321 }, { "name": "Rondônia", "value": 2064 }, { "name": "Roraima", "value": 877 }, { "name": "Santa Catarina", "value": 3427 }, { "name": "São Paulo", "value": 14685 }, { "name": "Sergipe", "value": 3614 }, { "name": "Tocantins", "value": 1842 } ],
+        "2018": [ { "name": "Acre", "value": 396 }, { "name": "Alagoas", "value": 1330 }, { "name": "Amapá", "value": 301 }, { "name": "Amazonas", "value": 1101 }, { "name": "Bahia", "value": 5520 }, { "name": "Ceará", "value": 4750 }, { "name": "Distrito Federal", "value": 410 }, { "name": "Espírito Santo", "value": 1409 }, { "name": "Goiás", "value": 1932 }, { "name": "Maranhão", "value": 1972 }, { "name": "Mato Grosso", "value": 1226 }, { "name": "Mato Grosso do Sul", "value": 682 }, { "name": "Minas Gerais", "value": 3351 }, { "name": "Pará", "value": 3266 }, { "name": "Paraíba", "value": 1370 }, { "name": "Paraná", "value": 2380 }, { "name": "Pernambuco", "value": 4559 }, { "name": "Piauí", "value": 844 }, { "name": "Rio de Janeiro", "value": 4681 }, { "name": "Rio Grande do Norte", "value": 1305 }, { "name": "Rio Grande do Sul", "value": 2264 }, { "name": "Rondônia", "value": 634 }, { "name": "Roraima", "value": 231 }, { "name": "Santa Catarina", "value": 888 }, { "name": "São Paulo", "value": 3733 }, { "name": "Sergipe", "value": 939 }, { "name": "Tocantins", "value": 470 } ],
+        "2019": [ { "name": "Acre", "value": 270 }, { "name": "Alagoas", "value": 1069 }, { "name": "Amapá", "value": 232 }, { "name": "Amazonas", "value": 996 }, { "name": "Bahia", "value": 5014 }, { "name": "Ceará", "value": 2155 }, { "name": "Distrito Federal", "value": 382 }, { "name": "Espírito Santo", "value": 987 }, { "name": "Goiás", "value": 1659 }, { "name": "Maranhão", "value": 1398 }, { "name": "Mato Grosso", "value": 770 }, { "name": "Mato Grosso do Sul", "value": 459 }, { "name": "Minas Gerais", "value": 2702 }, { "name": "Pará", "value": 2764 }, { "name": "Paraíba", "value": 942 }, { "name": "Paraná", "value": 1780 }, { "name": "Pernambuco", "value": 3257 }, { "name": "Piauí", "value": 542 }, { "name": "Rio de Janeiro", "value": 3999 }, { "name": "Rio Grande do Norte", "value": 1057 }, { "name": "Rio Grande do Sul", "value": 1828 }, { "name": "Rondônia", "value": 371 }, { "name": "Roraima", "value": 176 }, { "name": "Santa Catarina", "value": 696 }, { "name": "São Paulo", "value": 2775 }, { "name": "Sergipe", "value": 771 }, { "name": "Tocantins", "value": 336 } ],
+        "2020": [ { "name": "Acre", "value": 270 }, { "name": "Alagoas", "value": 1218 }, { "name": "Amapá", "value": 239 }, { "name": "Amazonas", "value": 923 }, { "name": "Bahia", "value": 5375 }, { "name": "Ceará", "value": 3937 }, { "name": "Distrito Federal", "value": 354 }, { "name": "Espírito Santo", "value": 1103 }, { "name": "Goiás", "value": 1505 }, { "name": "Maranhão", "value": 1856 }, { "name": "Mato Grosso", "value": 810 }, { "name": "Mato Grosso do Sul", "value": 396 }, { "name": "Minas Gerais", "value": 2550 }, { "name": "Pará", "value": 2198 }, { "name": "Paraíba", "value": 1162 }, { "name": "Paraná", "value": 1992 }, { "name": "Pernambuco", "value": 3568 }, { "name": "Piauí", "value": 660 }, { "name": "Rio de Janeiro", "value": 3532 }, { "name": "Rio Grande do Norte", "value": 1253 }, { "name": "Rio Grande do Sul", "value": 1811 }, { "name": "Rondônia", "value": 403 }, { "name": "Roraima", "value": 174 }, { "name": "Santa Catarina", "value": 696 }, { "name": "São Paulo", "value": 3040 }, { "name": "Sergipe", "value": 759 }, { "name": "Tocantins", "value": 404 } ],
+        "2021": [ { "name": "Acre", "value": 171 }, { "name": "Alagoas", "value": 1040 }, { "name": "Amapá", "value": 281 }, { "name": "Amazonas", "value": 1464 }, { "name": "Bahia", "value": 5539 }, { "name": "Ceará", "value": 3202 }, { "name": "Distrito Federal", "value": 290 }, { "name": "Espírito Santo", "value": 1058 }, { "name": "Goiás", "value": 1209 }, { "name": "Maranhão", "value": 1828 }, { "name": "Mato Grosso", "value": 749 }, { "name": "Mato Grosso do Sul", "value": 456 }, { "name": "Minas Gerais", "value": 2341 }, { "name": "Pará", "value": 2193 }, { "name": "Paraíba", "value": 1165 }, { "name": "Paraná", "value": 1905 }, { "name": "Pernambuco", "value": 3144 }, { "name": "Piauí", "value": 741 }, { "name": "Rio de Janeiro", "value": 3237 }, { "name": "Rio Grande do Norte", "value": 1083 }, { "name": "Rio Grande do Sul", "value": 1622 }, { "name": "Rondônia", "value": 416 }, { "name": "Roraima", "value": 197 }, { "name": "Santa Catarina", "value": 644 }, { "name": "São Paulo", "value": 2901 }, { "name": "Sergipe", "value": 558 }, { "name": "Tocantins", "value": 338 } ],
+        "2022": [ { "name": "Acre", "value": 207 }, { "name": "Alagoas", "value": 1112 }, { "name": "Amapá", "value": 210 }, { "name": "Amazonas", "value": 1319 }, { "name": "Bahia", "value": 5007 }, { "name": "Ceará", "value": 2881 }, { "name": "Distrito Federal", "value": 253 }, { "name": "Espírito Santo", "value": 992 }, { "name": "Goiás", "value": 1171 }, { "name": "Maranhão", "value": 1694 }, { "name": "Mato Grosso", "value": 923 }, { "name": "Mato Grosso do Sul", "value": 489 }, { "name": "Minas Gerais", "value": 2495 }, { "name": "Pará", "value": 2185 }, { "name": "Paraíba", "value": 1095 }, { "name": "Paraná", "value": 2010 }, { "name": "Pernambuco", "value": 3264 }, { "name": "Piauí", "value": 783 }, { "name": "Rio de Janeiro", "value": 3027 }, { "name": "Rio Grande do Norte", "value": 1002 }, { "name": "Rio Grande do Sul", "value": 1692 }, { "name": "Rondônia", "value": 479 }, { "name": "Roraima", "value": 171 }, { "name": "Santa Catarina", "value": 615 }, { "name": "São Paulo", "value": 3044 }, { "name": "Sergipe", "value": 574 }, { "name": "Tocantins", "value": 396 } ]
+      };
 
-      const filtro = dados[ano].filter(d => {
-        return (estado === d.estado || estado === "Todos") &&
-               (crime === d.crime || crime === "Todos");
-      });
-
-      const porEstado = filtro.reduce((acc, cur) => {
-        acc[cur.estado] = (acc[cur.estado] || 0) + cur.ocorrencias;
-        return acc;
-      }, {});
-
-      const categorias = Object.keys(porEstado);
-      const valores = Object.values(porEstado);
-
-      chart.setOption({
+      option = {
+        baseOption: {
+          timeline: {
+            axisType: 'category',
+            autoPlay: false,
+            playInterval: 3000,
+            bottom: 0,
+            data: anos
+          },
+          title: {},
+          tooltip: {
+            trigger: 'item',
+            formatter: '{b}<br/>'
+          },
+          visualMap: {
+            min: 0,
+            max: 27000,
+            left: 150,
+            top: 300,
+            text: ['Mais vítimas', 'Menos vítimas'],
+            calculable: true,
+            inRange: {
+              color: ['#fff5f0', '#fcae91', '#fb6a4a', '#cb181d', '#67000d']
+            }
+          },
+          series: [{
+            type: 'map',
+            map: 'BR',
+            selectedMode: false,
+            roam: true,
+            emphasis: {
+              label: { show: true }
+            },
+            data: []
+          }]
+        },
+        options: anos.map(ano => ({
         title: {
-          text: `Ocorrências em ${ano}`,
-          left: 'center'
+            text: `Vítimas em ${ano} (${dadosPorAno[ano].reduce((acc, curr) => acc + curr.value, 0)})`,
+            top: 60,
+            left: 90
         },
-        tooltip: {},
-        xAxis: {
-          type: 'category',
-          data: categorias
-        },
-        yAxis: {
-          type: 'value'
-        },
-        series: [{
-          type: 'bar',
-          data: valores
-        }]
+          series: [{ data: dadosPorAno[ano] }]
+        }))
+      };
+
+      myChart.setOption(option);
+
+      myChart.on('timelinechanged', function (e) {
+        const index = e.currentIndex;
+        const ano = anos[index];
+
+        myChart.dispatchAction({ type: 'hideTip' });
+        myChart.dispatchAction({ type: 'downplay', seriesIndex: 0 });
+
+        myChart.setOption({
+          series: [{
+            data: dadosPorAno[ano]
+          }]
+        });
       });
-    }
+    });
 
-    selectAno.onchange = atualizarGrafico;
-    selectEstado.onchange = atualizarGrafico;
-    selectCrime.onchange = atualizarGrafico;
-
-    selectEstado.innerHTML = `<option value="Todos">Todos os Estados</option>` + selectEstado.innerHTML;
-    selectCrime.innerHTML = `<option value="Todos">Todos os Crimes</option>` + selectCrime.innerHTML;
-
-    selectAno.value = anos[0];
-    selectEstado.value = "Todos";
-    selectCrime.value = "Todos";
-    atualizarGrafico();
-  </script>
-
-  <script>
-    const __DADOS_JSON__ = __AQUI__;
+    window.addEventListener('resize', myChart.resize);
   </script>
 </body>
 </html>
-
 
